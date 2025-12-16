@@ -47,7 +47,6 @@ function App() {
   return (
     <div className="app-container">
       <h2>📝 Danh Sách Việc Cần Làm</h2>
-      <h1>Vinh</h1>
       <form className="input-group" onSubmit={addTodo}>
         <input 
           className="input-field"
