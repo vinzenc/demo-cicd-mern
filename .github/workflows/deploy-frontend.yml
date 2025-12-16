@@ -1,0 +1,36 @@
+name: Deploy Frontend to Render
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'client/**'   # Chỉ chạy khi sửa code trong thư mục client
+      - '.github/workflows/deploy-frontend.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client # Quan trọng: Chuyển vào thư mục client
+
+    steps:
+      - name: 📥 Lấy code
+        uses: actions/checkout@v4
+
+      - name: 🟢 Cài Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: 📦 Cài thư viện
+        run: npm install
+
+      - name: 🏗️ Build React App
+        run: npm run build
+
+      - name: 🚀 Kích hoạt Deploy trên Render
+        if: success()
+        # Lưu ý: Quay ra thư mục gốc để chạy curl (hoặc chạy luôn cũng được)
+        run: curl "${{ secrets.RENDER_FRONTEND_HOOK }}"
