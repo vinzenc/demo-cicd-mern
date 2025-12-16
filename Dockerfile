@@ -1,5 +1,5 @@
 # 1. Dùng Node.js bản nhẹ
-FROM node:18-alpine
+FROM node:22-alpine
 
 # 2. Tạo thư mục làm việc trong container
 WORKDIR /app

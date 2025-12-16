@@ -1,5 +1,5 @@
 # 1. Dùng Node.js
-FROM node:18-alpine
+FROM node:22-alpine
 
 # 2. Vào thư mục làm việc
 WORKDIR /app
