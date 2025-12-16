@@ -1,42 +1,113 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Reset cơ bản */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f2f5; /* Màu nền xám nhẹ dịu mắt */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+}
+
+/* Khung chính (Card) */
+.app-container {
+  background: white;
+  width: 100%;
+  max-width: 500px;
   padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Đổ bóng mềm */
+}
+
+h2 {
   text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Khu vực nhập liệu */
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-field {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.input-field:focus {
+  border-color: #4a90e2; /* Màu xanh khi bấm vào */
 }
 
-.card {
-  padding: 2em;
+.btn-add {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.read-the-docs {
-  color: #888;
+.btn-add:hover {
+  background-color: #357abd;
+}
+
+/* Danh sách công việc */
+.todo-list {
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: transform 0.2s;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item:hover {
+  transform: translateX(5px); /* Hiệu ứng đẩy nhẹ khi di chuột */
+}
+
+.todo-text {
+  font-size: 16px;
+  color: #444;
+}
+
+.btn-delete {
+  background-color: #ffeff0; /* Nền đỏ nhạt */
+  color: #ff4d4f;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-delete:hover {
+  background-color: #ff4d4f;
+  color: white;
 }
